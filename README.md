@@ -39,6 +39,45 @@ MyPortfolio/
 │   ├── package.json
 │   └── README.md
 │
+├── student-api/                 # Student REST API (Project 6) ✅
+│   ├── config/                  # Database configuration
+│   ├── controllers/             # Route controllers
+│   ├── middleware/              # Custom middleware
+│   ├── routes/                  # API routes
+│   ├── server.js
+│   ├── package.json
+│   └── README.md
+│
+├── auth-api/                    # Authentication System (Project 7) ✅
+│   ├── config/                  # Database configuration
+│   ├── controllers/             # Auth & user controllers
+│   ├── middleware/              # Auth, error, rate limiting
+│   ├── routes/                  # API routes
+│   ├── utils/                   # JWT utilities
+│   ├── server.js
+│   ├── package.json
+│   └── README.md
+│
+├── dashboard-app/               # Full-Stack Dashboard Frontend (Project 8) ✅
+│   ├── public/
+│   ├── src/
+│   │   ├── components/          # React components
+│   │   ├── services/            # API client
+│   │   ├── types/               # TypeScript interfaces
+│   │   └── ...
+│   ├── package.json
+│   └── README.md
+│
+├── dashboard-api/               # Full-Stack Dashboard Backend (Project 8) ✅
+│   ├── config/                  # Database configuration
+│   ├── controllers/             # API controllers
+│   ├── middleware/              # Auth, error, rate limiting
+│   ├── routes/                  # API routes
+│   ├── utils/                   # JWT utilities
+│   ├── server.js
+│   ├── package.json
+│   └── README.md
+│
 └── README.md                    # This file
 ```
 
@@ -109,27 +148,64 @@ MyPortfolio/
 
 ---
 
-## 🚧 Upcoming Projects
-
-### Project 3: Weather App (API Integration)
-**Tech Stack:** JavaScript, Fetch API, OpenWeatherMap API  
-**Status:** Planned
-
-### Project 4: React To-Do App
-**Tech Stack:** React, TypeScript  
-**Status:** Planned
-
-### Project 5: Student Management System
-**Tech Stack:** React, TypeScript  
-**Status:** Planned
-
-### Project 6: REST API Backend
+### ✅ Project 6: Student REST API
+**Status:** Complete  
 **Tech Stack:** Node.js, Express, PostgreSQL  
-**Status:** Planned
+**Features:**
+- Full CRUD operations
+- Advanced search, filtering, sorting
+- Pagination support
+- Input validation
+- Error handling middleware
+- Security (Helmet, CORS)
+- MVC architecture
+- Database connection pooling
 
-### Project 7: Authentication System
-**Tech Stack:** Node.js, JWT, PostgreSQL  
-**Status:** Planned
+**API Endpoint:** [http://localhost:5000](http://localhost:5000) (run `npm start` in student-api folder)  
+**Documentation:** [README](./student-api/README.md)
+
+---
+
+### ✅ Project 7: Authentication System
+**Status:** Complete  
+**Tech Stack:** Node.js, Express, PostgreSQL, JWT, bcrypt  
+**Features:**
+- User registration & login
+- JWT authentication
+- Password hashing (bcrypt)
+- Role-based access control
+- Password reset functionality
+- User management (Admin)
+- Rate limiting
+- HTTP-only cookies
+- Security middleware
+
+**API Endpoint:** [http://localhost:5001](http://localhost:5001) (run `npm start` in auth-api folder)  
+**Documentation:** [README](./auth-api/README.md)
+
+---
+
+### ✅ Project 8: Full-Stack Dashboard
+**Status:** Complete  
+**Tech Stack:** React, TypeScript, Node.js, Express, PostgreSQL, JWT  
+**Features:**
+- Complete authentication system
+- Project management (CRUD)
+- Task management with assignments
+- Admin dashboard with analytics
+- User dashboard with personal stats
+- Role-based access control
+- Real-time statistics
+- Team performance tracking
+- Responsive design
+
+**Frontend:** [http://localhost:3000](http://localhost:3000) (run `npm start` in dashboard-app folder)  
+**Backend:** [http://localhost:5002](http://localhost:5002) (run `npm start` in dashboard-api folder)  
+**Documentation:** [Frontend README](./dashboard-app/README.md) | [Backend README](./dashboard-api/README.md)
+
+---
+
+## 🚧 Upcoming Projects
 
 ### Project 8: Full-Stack Dashboard
 **Tech Stack:** React + TypeScript, Node.js, PostgreSQL  
@@ -208,12 +284,25 @@ Each project can be deployed separately:
 - 🔄 React Router (upcoming)
 - 🔄 State Management (upcoming)
 
-### Backend (Upcoming)
-- 🔄 Node.js & Express
-- 🔄 RESTful API design
-- 🔄 PostgreSQL
-- 🔄 JWT authentication
-- 🔄 Password hashing
+### Backend
+- ✅ Node.js & Express
+- ✅ RESTful API design
+- ✅ PostgreSQL
+- ✅ JWT authentication
+- ✅ Password hashing (bcrypt)
+- ✅ Middleware patterns
+- ✅ Error handling
+- ✅ Security best practices
+- ✅ Rate limiting
+- ✅ Role-based access control
+
+### Full-Stack
+- ✅ Frontend-Backend integration
+- ✅ API client implementation
+- ✅ Authentication flow
+- ✅ Protected routes
+- ✅ State management
+- ✅ Real-time data updates
 
 ### DevOps (Upcoming)
 - 🔄 Docker
@@ -227,13 +316,13 @@ Each project can be deployed separately:
 - [ ] Project 3: Weather App (Skipped)
 - [x] Project 4: React To-Do App
 - [x] Project 5: Student Management System
-- [ ] Project 6: REST API Backend
-- [ ] Project 7: Authentication System
-- [ ] Project 8: Full-Stack Dashboard
+- [x] Project 6: REST API Backend
+- [x] Project 7: Authentication System
+- [x] Project 8: Full-Stack Dashboard
 - [ ] Project 9: E-Commerce App
 - [ ] Project 10: DevOps Integration
 
-**Completion:** 4/10 (40%)
+**Completion:** 7/10 (70%)
 
 ## 🔗 Links
 

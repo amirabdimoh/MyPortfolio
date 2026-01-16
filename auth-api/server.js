@@ -1,0 +1,61 @@
+require('dotenv').config();
+const express = require('express');
+const cookieParser = require('cookie-parser');
+const cors = require('cors');
+const helmet = require('helmet');
+const morgan = require('morgan');
+const errorHandler = require('./middleware/errorHandler');
+const { generalLimiter } = require('./middleware/rateLimiter');
+
+const app = express();
+
+// Security middleware
+app.use(helmet());
+app.use(cors({
+  origin: process.env.CLIENT_URL || 'http://localhost:3000',
+  credentials: true
+}));
+
+// Body parser
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser());
+
+// Logging
+if (process.env.NODE_ENV === 'development') {
+  app.use(morgan('dev'));
+}
+
+// Rate limiting
+app.use('/api/', generalLimiter);
+
+// Routes
+app.use('/api/auth', require('./routes/authRoutes'));
+app.use('/api/users', require('./routes/userRoutes'));
+
+// Health check
+app.get('/health', (req, res) => {
+  res.status(200).json({
+    status: 'success',
+    message: 'Auth API is running',
+    timestamp: new Date().toISOString()
+  });
+});
+
+// 404 handler
+app.all('*', (req, res, next) => {
+  res.status(404).json({
+    status: 'error',
+    message: `Cannot find ${req.originalUrl} on this server`
+  });
+});
+
+// Error handler
+app.use(errorHandler);
+
+const PORT = process.env.PORT || 5001;
+
+app.listen(PORT, () => {
+  console.log(`🚀 Auth API server running on port ${PORT}`);
+  console.log(`📝 Environment: ${process.env.NODE_ENV || 'development'}`);
+});
