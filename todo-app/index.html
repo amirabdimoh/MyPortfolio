@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A simple and elegant to-do list application with local storage">
+    <title>To-Do App | Task Manager</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>📝 My To-Do List</h1>
+            <p class="subtitle">Stay organized and productive</p>
+        </header>
+
+        <div class="app-wrapper">
+            <!-- Add Task Form -->
+            <div class="add-task-section">
+                <input 
+                    type="text" 
+                    id="taskInput" 
+                    class="task-input" 
+                    placeholder="What needs to be done?"
+                    maxlength="100"
+                >
+                <button id="addTaskBtn" class="btn btn-add">
+                    <span class="btn-icon">+</span> Add Task
+                </button>
+            </div>
+
+            <!-- Filter Tabs -->
+            <div class="filter-tabs">
+                <button class="filter-btn active" data-filter="all">
+                    All <span class="count" id="allCount">0</span>
+                </button>
+                <button class="filter-btn" data-filter="active">
+                    Active <span class="count" id="activeCount">0</span>
+                </button>
+                <button class="filter-btn" data-filter="completed">
+                    Completed <span class="count" id="completedCount">0</span>
+                </button>
+            </div>
+
+            <!-- Task List -->
+            <ul id="taskList" class="task-list">
+                <!-- Tasks will be dynamically added here -->
+            </ul>
+
+            <!-- Empty State -->
+            <div id="emptyState" class="empty-state">
+                <div class="empty-icon">📋</div>
+                <p>No tasks yet. Add one to get started!</p>
+            </div>
+
+            <!-- Clear Completed Button -->
+            <div class="footer-actions">
+                <button id="clearCompletedBtn" class="btn btn-clear">
+                    Clear Completed
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Modal -->
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Edit Task</h2>
+                <button class="modal-close" id="closeModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <input 
+                    type="text" 
+                    id="editTaskInput" 
+                    class="task-input" 
+                    placeholder="Edit your task"
+                    maxlength="100"
+                >
+            </div>
+            <div class="modal-footer">
+                <button id="cancelEditBtn" class="btn btn-secondary">Cancel</button>
+                <button id="saveEditBtn" class="btn btn-primary">Save Changes</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
