@@ -326,7 +326,7 @@ Each project can be deployed separately:
 
 ## 🔗 Links
 
-- **GitHub:** [@yourusername](https://github.com/yourusername)
+- **GitHub:** [@yourusername](https://github.com/amirabdimoh/MyPortfolio)
 - **LinkedIn:** [Your Name](https://linkedin.com/in/yourusername)
 - **Portfolio:** [Live Site](https://yourusername.github.io)
 
@@ -359,7 +359,7 @@ All projects are open source and available under the MIT License.
 
 ## 👤 Author
 
-**Your Name**
+**Amir Abdi**
 - Full Stack Developer
 - Building a strong portfolio for 2026 opportunities
 - Passionate about clean code and user experience
