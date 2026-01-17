@@ -65,7 +65,7 @@ CREATE INDEX idx_tasks_assigned ON tasks(assigned_to);
 
 -- Sample data
 INSERT INTO users (name, email, password, role, department, position) VALUES
-('Admin User', 'admin@dashboard.com', '$2a$12$LQv3c1yqBWVHxkd0LHAkCOYz6TtxMQJqhN8/LewY5GyYILSWowO4S', 'admin', 'Management', 'CEO'),
+('Admin User', 'admin@dashboard.com', '$2b$12$27jV6rPGvtbr8mJOExdeoui2NaOTAjAY8GoCL1b52NN3h/.bs/.HK', 'admin', 'Management', 'CEO'),
 ('John Doe', 'john@dashboard.com', '$2a$12$LQv3c1yqBWVHxkd0LHAkCOYz6TtxMQJqhN8/LewY5GyYILSWowO4S', 'user', 'Engineering', 'Developer'),
 ('Jane Smith', 'jane@dashboard.com', '$2a$12$LQv3c1yqBWVHxkd0LHAkCOYz6TtxMQJqhN8/LewY5GyYILSWowO4S', 'user', 'Design', 'Designer'),
 ('Bob Wilson', 'bob@dashboard.com', '$2a$12$LQv3c1yqBWVHxkd0LHAkCOYz6TtxMQJqhN8/LewY5GyYILSWowO4S', 'user', 'Marketing', 'Manager');

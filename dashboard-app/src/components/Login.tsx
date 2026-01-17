@@ -98,11 +98,7 @@ const Login: React.FC<LoginProps> = ({ onLogin }) => {
           </button>
         </p>
         
-        <div className="demo-credentials">
-          <p><strong>Demo Credentials:</strong></p>
-          <p>Email: admin@dashboard.com</p>
-          <p>Password: password123</p>
-        </div>
+        
       </div>
     </div>
   );
