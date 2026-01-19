@@ -16,7 +16,7 @@
     "crud"
   ],
   "author": "Your Name",
-  "license": "ISC",,
+  "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^17.2.3",

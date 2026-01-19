@@ -1,6 +1,21 @@
 const pool = require('../config/database');
 const { AppError, asyncHandler } = require('../middleware/errorHandler');
 
+// Utility function to convert snake_case to camelCase
+const toCamelCase = (obj) => {
+  if (obj === null || typeof obj !== 'object') return obj;
+  if (Array.isArray(obj)) return obj.map(toCamelCase);
+  
+  const camelObj = {};
+  for (const key in obj) {
+    if (obj.hasOwnProperty(key)) {
+      const camelKey = key.replace(/_([a-z])/g, (_, letter) => letter.toUpperCase());
+      camelObj[camelKey] = toCamelCase(obj[key]);
+    }
+  }
+  return camelObj;
+};
+
 // @desc    Get all students with optional filtering and sorting
 // @route   GET /api/students
 // @access  Public
@@ -53,7 +68,7 @@ const getAllStudents = asyncHandler(async (req, res, next) => {
     status: 'success',
     results: result.rows.length,
     data: {
-      students: result.rows
+      students: toCamelCase(result.rows)
     }
   });
 });
@@ -73,7 +88,7 @@ const getStudentById = asyncHandler(async (req, res, next) => {
   res.status(200).json({
     status: 'success',
     data: {
-      student: result.rows[0]
+      student: toCamelCase(result.rows[0])
     }
   });
 });
@@ -113,7 +128,7 @@ const createStudent = asyncHandler(async (req, res, next) => {
   res.status(201).json({
     status: 'success',
     data: {
-      student: result.rows[0]
+      student: toCamelCase(result.rows[0])
     }
   });
 });
@@ -168,7 +183,7 @@ const updateStudent = asyncHandler(async (req, res, next) => {
   res.status(200).json({
     status: 'success',
     data: {
-      student: result.rows[0]
+      student: toCamelCase(result.rows[0])
     }
   });
 });

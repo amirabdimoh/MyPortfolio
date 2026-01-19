@@ -13,7 +13,7 @@ const app = express();
 // --------------------
 // Security middleware
 // --------------------
-app.use(helmet());
+app.use(helmet({ hsts: false }));
 
 app.use(cors({
   origin: process.env.CLIENT_URL || 'http://localhost:3000',
