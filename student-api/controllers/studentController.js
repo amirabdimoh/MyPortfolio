@@ -217,7 +217,7 @@ const getStudentStats = asyncHandler(async (req, res, next) => {
       COUNT(*) FILTER (WHERE status = 'Active') as active,
       COUNT(*) FILTER (WHERE status = 'Inactive') as inactive,
       COUNT(*) FILTER (WHERE status = 'Graduated') as graduated,
-      ROUND(AVG(gpa)::numeric, 2) as average_gpa
+      COALESCE(ROUND(AVG(gpa)::numeric, 2), 0) as average_gpa
     FROM students
   `;
 

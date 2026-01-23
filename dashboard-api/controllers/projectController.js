@@ -9,10 +9,7 @@ exports.getProjects = asyncHandler(async (req, res, next) => {
   const offset = (page - 1) * limit;
 
   let query = `
-    SELECT p.*, 
-           u.name as owner_name,
-           (SELECT COUNT(*) FROM tasks WHERE project_id = p.id) as task_count,
-           (SELECT COUNT(*) FROM tasks WHERE project_id = p.id AND status = 'completed') as completed_tasks
+    SELECT p.*, u.name as owner_name
     FROM projects p
     LEFT JOIN users u ON p.owner_id = u.id
     WHERE 1=1
@@ -43,7 +40,7 @@ exports.getProjects = asyncHandler(async (req, res, next) => {
 
   const result = await pool.query(query, params);
 
-  const countQuery = 'SELECT COUNT(*) FROM projects WHERE 1=1' + 
+  const countQuery = 'SELECT COUNT(*) FROM projects WHERE 1=1' +
     (status ? ` AND status = '${status}'` : '') +
     (priority ? ` AND priority = '${priority}'` : '');
   const countResult = await pool.query(countQuery);
@@ -68,10 +65,7 @@ exports.getProject = asyncHandler(async (req, res, next) => {
   const { id } = req.params;
 
   const result = await pool.query(
-    `SELECT p.*, 
-            u.name as owner_name,
-            (SELECT COUNT(*) FROM tasks WHERE project_id = p.id) as task_count,
-            (SELECT COUNT(*) FROM tasks WHERE project_id = p.id AND status = 'completed') as completed_tasks
+    `SELECT p.*, u.name as owner_name
      FROM projects p
      LEFT JOIN users u ON p.owner_id = u.id
      WHERE p.id = $1`,
@@ -90,7 +84,7 @@ exports.getProject = asyncHandler(async (req, res, next) => {
 
 // @desc    Create project
 // @route   POST /api/projects
-// @access  Private
+// @access  Private/Admin
 exports.createProject = asyncHandler(async (req, res, next) => {
   const { name, description, status, priority, start_date, end_date, budget, owner_id } = req.body;
 
@@ -99,10 +93,10 @@ exports.createProject = asyncHandler(async (req, res, next) => {
   }
 
   const result = await pool.query(
-    `INSERT INTO projects (name, description, status, priority, start_date, end_date, budget, owner_id, created_by)
-     VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)
+    `INSERT INTO projects (name, description, status, priority, start_date, end_date, budget, owner_id)
+     VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
      RETURNING *`,
-    [name, description, status || 'planning', priority || 'medium', start_date, end_date, budget, owner_id, req.user.id]
+    [name, description, status || 'planning', priority || 'medium', start_date, end_date, budget, owner_id]
   );
 
   res.status(201).json({

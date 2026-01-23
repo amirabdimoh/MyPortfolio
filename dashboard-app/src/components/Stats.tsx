@@ -1,100 +1,225 @@
 import React from 'react';
-import { User } from '../types';
+import { DashboardStats, User, Task, Project } from '../types';
 import './Stats.css';
 
 interface StatsProps {
-  stats: any;
+  stats: DashboardStats;
   user: User;
 }
 
 const Stats: React.FC<StatsProps> = ({ stats, user }) => {
-  if (!stats) return <div>No data available</div>;
+  const isAdmin = user.role === 'admin';
 
-  if (user.role === 'admin') {
-    return (
-      <div className="stats-container">
-        <div className="stats-grid">
-          <div className="stat-card">
-            <h3>Total Projects</h3>
-            <p className="stat-number">{stats.overview.totalProjects}</p>
-          </div>
-          <div className="stat-card">
-            <h3>Total Tasks</h3>
-            <p className="stat-number">{stats.overview.totalTasks}</p>
-          </div>
-          <div className="stat-card">
-            <h3>Total Users</h3>
-            <p className="stat-number">{stats.overview.totalUsers}</p>
-          </div>
-        </div>
-
-        <div className="stats-section">
-          <h2>Recent Projects</h2>
-          <div className="list">
-            {stats.recentProjects.map((project: any) => (
-              <div key={project.id} className="list-item">
-                <h4>{project.name}</h4>
-                <span className={`badge badge-${project.status}`}>{project.status}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <div className="stats-section">
-          <h2>Upcoming Deadlines</h2>
-          <div className="list">
-            {stats.upcomingDeadlines.map((task: any) => (
-              <div key={task.id} className="list-item">
-                <h4>{task.title}</h4>
-                <span>{task.due_date}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-    );
-  }
-
-  return (
+  const renderAdminStats = () => (
     <div className="stats-container">
+      <div className="stats-header">
+        <h2>Admin Dashboard Overview</h2>
+        <p>System-wide statistics and insights</p>
+      </div>
+
       <div className="stats-grid">
         <div className="stat-card">
-          <h3>My Tasks</h3>
-          <p className="stat-number">{stats.myTaskStats.total}</p>
+          <div className="stat-icon">📊</div>
+          <div className="stat-content">
+            <h3>{stats.overview?.totalProjects || 0}</h3>
+            <p>Total Projects</p>
+          </div>
         </div>
         <div className="stat-card">
-          <h3>Completed</h3>
-          <p className="stat-number">{stats.myTaskStats.completed}</p>
+          <div className="stat-icon">✅</div>
+          <div className="stat-content">
+            <h3>{stats.overview?.totalTasks || 0}</h3>
+            <p>Total Tasks</p>
+          </div>
         </div>
         <div className="stat-card">
-          <h3>In Progress</h3>
-          <p className="stat-number">{stats.myTaskStats.in_progress}</p>
+          <div className="stat-icon">👥</div>
+          <div className="stat-content">
+            <h3>{stats.overview?.totalUsers || 0}</h3>
+            <p>Team Members</p>
+          </div>
         </div>
       </div>
 
-      <div className="stats-section">
-        <h2>My Projects</h2>
-        <div className="list">
-          {stats.myProjects.map((project: any) => (
-            <div key={project.id} className="list-item">
-              <h4>{project.name}</h4>
-              <span className={`badge badge-${project.status}`}>{project.status}</span>
-            </div>
-          ))}
+      <div className="charts-section">
+        <div className="chart-container">
+          <h3>Projects by Status</h3>
+          <div className="chart-placeholder">
+            {stats.projectsByStatus?.map((item, index) => (
+              <div key={index} className="chart-item">
+                <span className={`status-badge status-${item.status}`}>{item.status}</span>
+                <span className="count">{item.count}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="chart-container">
+          <h3>Tasks by Status</h3>
+          <div className="chart-placeholder">
+            {stats.tasksByStatus?.map((item, index) => (
+              <div key={index} className="chart-item">
+                <span className={`status-badge status-${item.status}`}>{item.status}</span>
+                <span className="count">{item.count}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="chart-container">
+          <h3>Tasks by Priority</h3>
+          <div className="chart-placeholder">
+            {stats.tasksByPriority?.map((item, index) => (
+              <div key={index} className="chart-item">
+                <span className={`priority-badge priority-${item.priority}`}>{item.priority}</span>
+                <span className="count">{item.count}</span>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 
-      <div className="stats-section">
-        <h2>My Tasks</h2>
-        <div className="list">
-          {stats.myTasks.slice(0, 10).map((task: any) => (
-            <div key={task.id} className="list-item">
-              <h4>{task.title}</h4>
-              <span className={`badge badge-${task.status}`}>{task.status}</span>
-            </div>
-          ))}
+      <div className="recent-activity">
+        <div className="activity-section">
+          <h3>Recent Projects</h3>
+          <div className="activity-list">
+            {stats.recentProjects?.slice(0, 5).map((project) => (
+              <div key={project.id} className="activity-item">
+                <div className="activity-content">
+                  <div className="activity-title">{project.name}</div>
+                  <div className="activity-meta">
+                    Status: <span className={`status-badge status-${project.status}`}>{project.status}</span> • 
+                    Owner: {project.owner_name}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="activity-section">
+          <h3>Upcoming Deadlines</h3>
+          <div className="activity-list">
+            {stats.upcomingDeadlines?.slice(0, 5).map((task) => (
+              <div key={task.id} className="activity-item">
+                <div className="activity-content">
+                  <div className="activity-title">{task.title}</div>
+                  <div className="activity-meta">
+                    Project: {task.project_name} • 
+                    Due: {task.due_date ? new Date(task.due_date).toLocaleDateString() : 'No due date'} • 
+                    <span className={`priority-badge priority-${task.priority}`}>{task.priority}</span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
+    </div>
+  );
+
+  const renderUserStats = () => (
+    <div className="stats-container user-dashboard">
+      <div className="stats-header">
+        <h2>Welcome back, {user.name}! 👋</h2>
+        <p>Here's your personal dashboard overview</p>
+      </div>
+
+      <div className="stats-grid">
+        <div className="stat-card">
+          <div className="stat-icon">📁</div>
+          <div className="stat-content">
+            <h3>{stats.myProjects?.length || 0}</h3>
+            <p>My Projects</p>
+          </div>
+        </div>
+        <div className="stat-card">
+          <div className="stat-icon">✅</div>
+          <div className="stat-content">
+            <h3>{stats.myTaskStats?.total || 0}</h3>
+            <p>My Tasks</p>
+          </div>
+        </div>
+        <div className="stat-card">
+          <div className="stat-icon">🎯</div>
+          <div className="stat-content">
+            <h3>{stats.myTaskStats?.completed || 0}</h3>
+            <p>Completed</p>
+          </div>
+        </div>
+        <div className="stat-card">
+          <div className="stat-icon">⚡</div>
+          <div className="stat-content">
+            <h3>{stats.myTaskStats?.in_progress || 0}</h3>
+            <p>In Progress</p>
+          </div>
+        </div>
+      </div>
+
+      <div className="charts-section">
+        <div className="chart-container">
+          <h3>My Task Status</h3>
+          <div className="chart-placeholder">
+            <div className="chart-item">
+              <span className="status-badge status-todo">To Do</span>
+              <span className="count">{stats.myTaskStats?.todo || 0}</span>
+            </div>
+            <div className="chart-item">
+              <span className="status-badge status-in-progress">In Progress</span>
+              <span className="count">{stats.myTaskStats?.in_progress || 0}</span>
+            </div>
+            <div className="chart-item">
+              <span className="status-badge status-completed">Completed</span>
+              <span className="count">{stats.myTaskStats?.completed || 0}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="recent-activity">
+        <div className="activity-section">
+          <h3>My Recent Tasks</h3>
+          <div className="activity-list">
+            {stats.myTasks?.slice(0, 5).map((task: Task) => (
+              <div key={task.id} className="activity-item">
+                <div className="activity-content">
+                  <div className="activity-title">{task.title}</div>
+                  <div className="activity-meta">
+                    Project: {task.project_name || 'No project'} • 
+                    Status: <span className={`status-badge status-${task.status}`}>{task.status}</span>
+                    {task.due_date && (
+                      <> • Due: {new Date(task.due_date).toLocaleDateString()}</>
+                    )}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="activity-section">
+          <h3>My Projects</h3>
+          <div className="activity-list">
+            {stats.myProjects?.slice(0, 3).map((project: Project) => (
+              <div key={project.id} className="activity-item">
+                <div className="activity-content">
+                  <div className="activity-title">{project.name}</div>
+                  <div className="activity-meta">
+                    Status: <span className={`status-badge status-${project.status}`}>{project.status}</span> • 
+                    Progress: {project.completed_tasks || 0}/{project.task_count || 0} tasks
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+
+  return (
+    <div className="stats">
+      {isAdmin ? renderAdminStats() : renderUserStats()}
     </div>
   );
 };

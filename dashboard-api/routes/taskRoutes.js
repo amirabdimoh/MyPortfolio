@@ -6,7 +6,7 @@ const {
   updateTask,
   deleteTask
 } = require('../controllers/taskController');
-const { protect } = require('../middleware/auth');
+const { protect, restrictTo } = require('../middleware/auth');
 
 const router = express.Router();
 
@@ -14,11 +14,11 @@ router.use(protect);
 
 router.route('/')
   .get(getTasks)
-  .post(createTask);
+  .post(restrictTo('admin'), createTask);
 
 router.route('/:id')
   .get(getTask)
-  .put(updateTask)
-  .delete(deleteTask);
+  .put(restrictTo('admin'), updateTask)
+  .delete(restrictTo('admin'), deleteTask);
 
 module.exports = router;

@@ -14,11 +14,11 @@ router.use(protect);
 
 router.route('/')
   .get(getProjects)
-  .post(createProject);
+  .post(restrictTo('admin'), createProject);
 
 router.route('/:id')
   .get(getProject)
-  .put(updateProject)
+  .put(restrictTo('admin'), updateProject)
   .delete(restrictTo('admin'), deleteProject);
 
 module.exports = router;

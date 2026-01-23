@@ -13,7 +13,7 @@ const app = express();
 // --------------------
 // Security middleware
 // --------------------
-app.use(helmet({ hsts: false }));
+// app.use(helmet({ hsts: false, contentSecurityPolicy: false }));
 
 app.use(cors({
   origin: process.env.CLIENT_URL || 'http://localhost:3000',
@@ -43,9 +43,10 @@ app.use('/api', generalLimiter);
 // Routes
 // --------------------
 app.use('/api/auth', require('./routes/authRoutes'));
+app.use('/api/dashboard', require('./routes/dashboardRoutes'));
 app.use('/api/projects', require('./routes/projectRoutes'));
 app.use('/api/tasks', require('./routes/taskRoutes'));
-app.use('/api/dashboard', require('./routes/dashboardRoutes'));
+app.use('/api/users', require('./routes/userRoutes'));
 
 // --------------------
 // Health check

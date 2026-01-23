@@ -1,34 +1,33 @@
-# Authentication System API
+# Authentication API 🔐
 
-A professional authentication and user management REST API built with Node.js, Express, PostgreSQL, and JWT.
+Professional authentication and user management REST API delivering secure, scalable user authentication with JWT tokens, role-based access control, and comprehensive security features.
 
-## 🚀 Features
+## 🚀 What This API Delivers
 
-### Authentication
-- **User Registration** - Create new accounts with email validation
-- **User Login** - Secure authentication with JWT tokens
-- **Logout** - Token invalidation
-- **Password Management** - Update password, forgot password, reset password
-- **Profile Management** - View and update user details
+### Complete Authentication System
+- **User Registration** - Secure account creation with email validation
+- **JWT Authentication** - Token-based login with automatic refresh
+- **Password Security** - bcrypt hashing with forgot/reset functionality
+- **Profile Management** - Update user details and preferences
+- **Session Management** - Secure logout with token invalidation
 
-### Security
-- **JWT Authentication** - Secure token-based authentication
-- **Password Hashing** - bcrypt with salt rounds
-- **HTTP-only Cookies** - Secure token storage
-- **Rate Limiting** - Prevent brute force attacks
-- **CORS Protection** - Cross-origin resource sharing
-- **Helmet.js** - Security headers
-- **Input Validation** - Prevent injection attacks
+### Enterprise Security
+- **Rate Limiting** - Prevents brute force attacks (configurable limits)
+- **CORS Protection** - Secure cross-origin resource sharing
+- **Helmet Security** - Production-ready security headers
+- **Input Sanitization** - SQL injection and XSS prevention
+- **HTTP-Only Cookies** - Secure token storage mechanism
 
-### User Management (Admin Only)
-- **List Users** - Paginated with search and filters
-- **View User** - Get single user details
-- **Update User** - Modify user information and roles
-- **Delete User** - Remove users from system
+### Admin User Management
+- **User Directory** - Paginated user listing with search
+- **Role Management** - Assign and modify user roles
+- **Account Control** - Activate, deactivate, or remove users
+- **Bulk Operations** - Efficient multi-user management
 
 ### Role-Based Access Control
-- **User Role** - Standard user access
-- **Admin Role** - Full system access
+- **User Permissions** - Standard user access and operations
+- **Admin Privileges** - Full system administration capabilities
+- **Route Protection** - Middleware-based access control
 
 ## 📋 Tech Stack
 

@@ -48,18 +48,18 @@ export interface Task {
 }
 
 export interface DashboardStats {
-  overview: {
+  overview?: {
     totalProjects: number;
     totalTasks: number;
     totalUsers: number;
   };
-  projectsByStatus: Array<{ status: string; count: string }>;
-  tasksByStatus: Array<{ status: string; count: string }>;
-  tasksByPriority: Array<{ priority: string; count: string }>;
-  recentProjects: Project[];
-  recentTasks: Task[];
-  upcomingDeadlines: Task[];
-  teamPerformance: Array<{
+  projectsByStatus?: Array<{ status: string; count: string }>;
+  tasksByStatus?: Array<{ status: string; count: string }>;
+  tasksByPriority?: Array<{ priority: string; count: string }>;
+  recentProjects?: Project[];
+  recentTasks?: Task[];
+  upcomingDeadlines?: Task[];
+  teamPerformance?: Array<{
     id: number;
     name: string;
     department: string;
@@ -67,6 +67,15 @@ export interface DashboardStats {
     completed_tasks: string;
     in_progress_tasks: string;
   }>;
+  // User-specific stats
+  myProjects?: Project[];
+  myTasks?: Task[];
+  myTaskStats?: {
+    total: number;
+    completed: number;
+    in_progress: number;
+    todo: number;
+  };
 }
 
 export interface AuthResponse {

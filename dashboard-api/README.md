@@ -1,47 +1,36 @@
-# Dashboard API
+# Dashboard API 📊
 
-Enterprise-grade REST API for project and task management dashboard built with Node.js, Express, PostgreSQL, and JWT authentication.
+Enterprise-grade project and task management REST API powering comprehensive dashboard analytics, team collaboration, and project tracking with real-time statistics and role-based access control.
 
-## 🚀 Features
+## 🚀 What This API Powers
 
-### Authentication & Authorization
-- User registration and login
-- JWT token-based authentication
-- Role-based access control (User/Admin)
-- Secure password hashing with bcrypt
-- HTTP-only cookies
+### Project Management Engine
+- **Complete Project Lifecycle** - Create, track, and manage projects from planning to completion
+- **Status Tracking** - Real-time project status (planning, in-progress, completed, on-hold, cancelled)
+- **Priority Management** - Four-tier priority system (low, medium, high, urgent)
+- **Budget Monitoring** - Track project budgets and financial metrics
+- **Team Assignment** - Project ownership and team member allocation
 
-### Project Management
-- Full CRUD operations for projects
-- Project status tracking (planning, in-progress, completed, on-hold, cancelled)
-- Priority levels (low, medium, high, urgent)
-- Budget tracking
-- Project ownership
-- Task count per project
+### Advanced Task System
+- **Full Task Management** - Create, assign, update, and track tasks
+- **Workflow States** - Complete task lifecycle (todo, in-progress, review, completed, cancelled)
+- **Smart Assignment** - Assign tasks to team members with notification system
+- **Deadline Tracking** - Due date management with overdue detection
+- **Project Integration** - Seamless task-to-project association
 
-### Task Management
-- Full CRUD operations for tasks
-- Task assignment to users
-- Status tracking (todo, in-progress, review, completed, cancelled)
-- Priority levels
-- Due date tracking
-- Project association
+### Real-Time Analytics Dashboard
+- **Admin Analytics** - System-wide statistics and performance metrics
+- **Personal Dashboards** - User-specific task and project insights
+- **Team Performance** - Productivity tracking and team metrics
+- **Deadline Management** - Upcoming deadlines and overdue alerts
+- **Activity Streams** - Recent activity tracking across projects
 
-### Dashboard Analytics
-- Admin dashboard with system-wide statistics
-- User dashboard with personal statistics
-- Project and task metrics
-- Team performance tracking
-- Upcoming deadlines
-- Recent activity
-
-### Security
-- Rate limiting
-- CORS protection
-- Helmet.js security headers
-- Input validation
-- SQL injection prevention
-- Error handling middleware
+### Enterprise Security & Performance
+- **JWT Authentication** - Secure token-based user authentication
+- **Role-Based Access** - Admin and user permission levels
+- **Rate Limiting** - API protection (100 requests/15min, 5 auth requests/15min)
+- **Security Headers** - Helmet.js protection with CORS configuration
+- **Input Validation** - Comprehensive data validation and sanitization
 
 ## 📋 Tech Stack
 

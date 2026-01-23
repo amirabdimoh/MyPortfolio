@@ -43,8 +43,8 @@ export const authAPI = {
 };
 
 export const projectsAPI = {
-  getAll: (params?: Record<string, string>) => {
-    const query = params ? `?${new URLSearchParams(params)}` : '';
+  getAll: (params?: string) => {
+    const query = params ? `?${params}` : '';
     return apiRequest(`/projects${query}`);
   },
   
@@ -67,8 +67,8 @@ export const projectsAPI = {
 };
 
 export const tasksAPI = {
-  getAll: (params?: Record<string, string>) => {
-    const query = params ? `?${new URLSearchParams(params)}` : '';
+  getAll: (params?: string) => {
+    const query = params ? `?${params}` : '';
     return apiRequest(`/tasks${query}`);
   },
   
@@ -88,6 +88,42 @@ export const tasksAPI = {
   
   delete: (id: number) =>
     apiRequest(`/tasks/${id}`, { method: 'DELETE' }),
+};
+
+export const usersAPI = {
+  getAll: (params?: string) => {
+    const query = params ? `?${params}` : '';
+    return apiRequest(`/users${query}`);
+  },
+  
+  getOne: (id: number) => apiRequest(`/users/${id}`),
+  
+  create: (data: any) =>
+    apiRequest('/users', {
+      method: 'POST',
+      body: JSON.stringify(data),
+    }),
+  
+  update: (id: number, data: any) =>
+    apiRequest(`/users/${id}`, {
+      method: 'PUT',
+      body: JSON.stringify(data),
+    }),
+  
+  updateRole: (id: number, role: string) =>
+    apiRequest(`/users/${id}/role`, {
+      method: 'PUT',
+      body: JSON.stringify({ role }),
+    }),
+  
+  updateStatus: (id: number, isActive: boolean) =>
+    apiRequest(`/users/${id}/status`, {
+      method: 'PUT',
+      body: JSON.stringify({ is_active: isActive }),
+    }),
+  
+  delete: (id: number) =>
+    apiRequest(`/users/${id}`, { method: 'DELETE' }),
 };
 
 export const dashboardAPI = {

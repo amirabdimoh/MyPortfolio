@@ -1,85 +1,160 @@
 .stats-container {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.stats-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.stats-header h2 {
+  font-size: 2rem;
+  color: #2d3748;
+  margin: 0;
+  font-weight: 700;
 }
 
 .stats-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 1.5rem;
+  margin-bottom: 2rem;
 }
 
 .stat-card {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
-  padding: 2rem;
+  background: white;
+  border: 1px solid #e2e8f0;
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+  padding: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
 }
 
 .stat-card h3 {
   font-size: 0.875rem;
+  color: #718096;
+  margin: 0 0 0.5rem 0;
   font-weight: 600;
   text-transform: uppercase;
-  opacity: 0.9;
-  margin-bottom: 0.5rem;
+  letter-spacing: 0.05em;
 }
 
-.stat-number {
+.stat-value {
   font-size: 2.5rem;
   font-weight: 700;
+  color: #2d3748;
   margin: 0;
 }
 
-.stats-section {
-  margin-top: 1rem;
+.charts-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
 }
 
-.stats-section h2 {
+.chart-container {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.chart-container h3 {
   font-size: 1.25rem;
-  margin-bottom: 1rem;
-  color: #333;
+  color: #2d3748;
+  margin: 0 0 1rem 0;
+  font-weight: 600;
 }
 
-.list {
+.chart-placeholder {
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
 }
 
-.list-item {
+.chart-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem;
+  padding: 0.75rem;
   background: #f7fafc;
   border-radius: 8px;
   border-left: 4px solid #667eea;
 }
 
-.list-item h4 {
+.chart-item span:first-child {
+  font-weight: 500;
+  color: #4a5568;
+}
+
+.chart-item span:last-child {
+  font-weight: 700;
+  color: #2d3748;
+}
+
+.recent-activity {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.recent-activity h3 {
+  font-size: 1.25rem;
+  color: #2d3748;
+  margin: 0 0 1rem 0;
+  font-weight: 600;
+}
+
+.activity-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.activity-item {
+  padding: 1rem;
+  background: #f7fafc;
+  border-radius: 8px;
+  border-left: 4px solid #48bb78;
+}
+
+.activity-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.activity-title {
+  font-weight: 600;
+  color: #2d3748;
   margin: 0;
-  color: #333;
   font-size: 1rem;
 }
 
+.activity-meta {
+  font-size: 0.875rem;
+  color: #718096;
+  margin: 0;
+}
+
 .badge {
-  padding: 0.25rem 0.75rem;
-  border-radius: 12px;
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
   font-size: 0.75rem;
   font-weight: 600;
   text-transform: uppercase;
 }
 
-.badge-planning { background: #bee3f8; color: #2c5282; }
-.badge-in-progress { background: #feebc8; color: #7c2d12; }
-.badge-completed { background: #c6f6d5; color: #22543d; }
-.badge-on-hold { background: #fed7d7; color: #742a2a; }
-.badge-cancelled { background: #e2e8f0; color: #4a5568; }
-.badge-todo { background: #e2e8f0; color: #4a5568; }
-.badge-review { background: #d6bcfa; color: #44337a; }
-.badge-low { background: #bee3f8; color: #2c5282; }
-.badge-medium { background: #feebc8; color: #7c2d12; }
-.badge-high { background: #fed7d7; color: #742a2a; }
-.badge-urgent { background: #fc8181; color: #fff; }
+.badge-success { background: #c6f6d5; color: #22543d; }
+.badge-primary { background: #bee3f8; color: #2c5282; }
+.badge-info { background: #d6bcfa; color: #44337a; }
+.badge-warning { background: #feebc8; color: #7c2d12; }
+.badge-danger { background: #fed7d7; color: #742a2a; }
+.badge-secondary { background: #e2e8f0; color: #4a5568; }
