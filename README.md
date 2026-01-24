@@ -70,23 +70,7 @@ MyPortfolio/
 │
 └── README.md                    # This file
 ```
-dashboard-app/                   # e-commerce Dashboard Frontend (Project 6) ✅
-├── src/
-│   ├── components/
-│   │   ├── Login.tsx          # Authentication component
-│   │   ├── Dashboard.tsx      # Main dashboard layout
-│   │   ├── Stats.tsx          # Statistics display
-│   │   ├── ProjectList.tsx    # Project listing
-│   │   └── TaskList.tsx       # Task listing
-│   ├── services/
-│   │   └── api.ts             # API client
-│   ├── types/
-│   │   └── index.ts           # TypeScript interfaces
-│   ├── App.tsx                # Main app component
-│   └── App.css                # Global styles
-├── public/
-└── package.json
-```
+
 
 ## 🎯 Completed Projects
 
