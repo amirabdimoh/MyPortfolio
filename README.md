@@ -19,7 +19,7 @@ MyPortfolio/
 │   ├── script.js
 │   └── README.md
 │
-├── student-management-system/   # Student Management System (Project 5) ✅
+├── student-management-system/   # Student Management System (Project 3) ✅
 │   ├── public/
 │   ├── src/
 │   │   ├── components/          # React components
@@ -29,7 +29,7 @@ MyPortfolio/
 │   ├── package.json
 │   └── README.md
 │
-├── student-api/                 # Student REST API (Project 6) ✅
+├── student-api/                 # Student REST API (Project 3) ✅
 │   ├── config/                  # Database configuration
 │   ├── controllers/             # Route controllers
 │   ├── middleware/              # Custom middleware
@@ -38,7 +38,7 @@ MyPortfolio/
 │   ├── package.json
 │   └── README.md
 │
-├── auth-api/                    # Authentication System (Project 7) ✅
+├── auth-api/                    # Authentication System (Project 4) ✅
 │   ├── config/                  # Database configuration
 │   ├── controllers/             # Auth & user controllers
 │   ├── middleware/              # Auth, error, rate limiting
@@ -48,7 +48,7 @@ MyPortfolio/
 │   ├── package.json
 │   └── README.md
 │
-├── dashboard-app/               # Full-Stack Dashboard Frontend (Project 8) ✅
+├── dashboard-app/               # Full-Stack Dashboard Frontend (Project 5) ✅
 │   ├── public/
 │   ├── src/
 │   │   ├── components/          # React components
@@ -58,7 +58,7 @@ MyPortfolio/
 │   ├── package.json
 │   └── README.md
 │
-├── dashboard-api/               # Full-Stack Dashboard Backend (Project 8) ✅
+├── dashboard-api/               # Full-Stack Dashboard Backend (Project 5) ✅
 │   ├── config/                  # Database configuration
 │   ├── controllers/             # API controllers
 │   ├── middleware/              # Auth, error, rate limiting
@@ -69,6 +69,23 @@ MyPortfolio/
 │   └── README.md
 │
 └── README.md                    # This file
+```
+dashboard-app/                   # e-commerce Dashboard Frontend (Project 6) ✅
+├── src/
+│   ├── components/
+│   │   ├── Login.tsx          # Authentication component
+│   │   ├── Dashboard.tsx      # Main dashboard layout
+│   │   ├── Stats.tsx          # Statistics display
+│   │   ├── ProjectList.tsx    # Project listing
+│   │   └── TaskList.tsx       # Task listing
+│   ├── services/
+│   │   └── api.ts             # API client
+│   ├── types/
+│   │   └── index.ts           # TypeScript interfaces
+│   ├── App.tsx                # Main app component
+│   └── App.css                # Global styles
+├── public/
+└── package.json
 ```
 
 ## 🎯 Completed Projects
@@ -103,24 +120,9 @@ MyPortfolio/
 
 ---
 
-### ✅ Project 4: React To-Do App
-**Status:** Complete  
-**Tech Stack:** React 18, TypeScript, CSS3  
-**Features:**
-- Component architecture
-- Custom hooks (useTodos)
-- TypeScript interfaces
-- State management
-- LocalStorage integration
-- Inline editing
-- Accessibility features
-
-**Live Demo:** [View React App](http://localhost:3000) (run `npm start` in react-todo-app folder)  
-**Documentation:** [README](./react-todo-app/README.md)
-
 ---
 
-### ✅ Project 5: Student Management System
+### ✅ Project 3: Student Management System
 **Status:** Complete  
 **Tech Stack:** React 18, TypeScript, CSS3  
 **Features:**
@@ -138,7 +140,7 @@ MyPortfolio/
 
 ---
 
-### ✅ Project 6: Student REST API
+### ✅ Project 3: Student REST API
 **Status:** Complete  
 **Tech Stack:** Node.js, Express, PostgreSQL  
 **Features:**
@@ -156,7 +158,7 @@ MyPortfolio/
 
 ---
 
-### ✅ Project 7: Authentication System
+### ✅ Project 4: Authentication System
 **Status:** Complete  
 **Tech Stack:** Node.js, Express, PostgreSQL, JWT, bcrypt  
 **Features:**
@@ -175,7 +177,7 @@ MyPortfolio/
 
 ---
 
-### ✅ Project 8: Full-Stack Dashboard
+### ✅ Project 5: Full-Stack Dashboard
 **Status:** Complete  
 **Tech Stack:** React, TypeScript, Node.js, Express, PostgreSQL, JWT  
 **Features:**
