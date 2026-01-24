@@ -180,7 +180,12 @@ MyPortfolio/
 **Documentation:** [Frontend README](./dashboard-app/README.md) | [Backend README](./dashboard-api/README.md)
 
 ---
+## 📝 Notes for Clients
 
+- Only the **portfolio website** is deployed online.  
+- All other projects are fully functional and can be run locally for review or demonstration purposes.  
+- Screenshots and documentation are included for all projects.  
+- Feedback and questions are welcome — I’m happy to guide you to run the projects locally if needed.
 
 ## 🚀 Quick Start
 
