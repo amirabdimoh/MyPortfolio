@@ -83,7 +83,7 @@ MyPortfolio/
 - Contact form with validation
 - GitHub & LinkedIn integration
 
-**Live Demo:** [View Portfolio](./portfolio-website/index.html)  
+**Live Demo:** [View Portfolio](https://amir-h-portfolio.netlify.app/)  
 **Documentation:** [README](./portfolio-website/README.md)
 
 ---
@@ -299,13 +299,13 @@ Each project can be deployed separately:
 - [ ] Project 9: E-Commerce App
 - [ ] Project 10: DevOps Integration
 
-**Completion:** 7/10 (70%)
+**Completion:** 9/10 (90%)
 
 ## 🔗 Links
 
 - **GitHub:** [@amirabdimoh](https://github.com/amirabdimoh)
 - **LinkedIn:** [Your Name](https://linkedin.com/in/yourusername)
-- **Portfolio:** [Live Site](https:/amir-h-portfolio.netlify.app)
+
 
 ## 📝 Notes
 
